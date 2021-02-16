@@ -18,6 +18,10 @@ K = keras.backend
 KL = keras.layers
 
 
+class VoterGraph(EnsembleGraph):
+    pass
+
+
 class Model(ModelBase):
     @staticmethod
     def get_params_cls() -> Type[ModelBaseParams]:
@@ -25,7 +29,7 @@ class Model(ModelBase):
 
     @classmethod
     def _get_additional_layers(cls) -> List[Type[tf.keras.layers.Layer]]:
-        return [Graph, EnsembleGraph]
+        return [Graph, EnsembleGraph, VoterGraph]
 
     def __init__(self, params: ModelParams):
         super(Model, self).__init__(params)

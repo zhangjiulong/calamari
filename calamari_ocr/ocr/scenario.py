@@ -50,4 +50,4 @@ class Scenario(ScenarioBase):
 
     def __init__(self, params):
         super(Scenario, self).__init__(params)
-        params.data_params.ensemble_ = params.model_params.ensemble
+        params.data_params.ensemble_ = params.model_params.ensemble = 5

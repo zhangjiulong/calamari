@@ -17,6 +17,7 @@ class Intermediate(tf.keras.layers.Layer):
     def __init__(self, params: ModelParams, name='CalamariGraph', **kwargs):
         super(Intermediate, self).__init__(name=name, **kwargs)
         self._params = params
+        self._params.ensemble = 5
         self.fold_graphs = [Graph(params, f"voter_{i}") for i in range(params.ensemble)]
         if self._params.no_masking_out_during_training:
             logger.warning("Disabling masking during training. This should only be used for evaluation!")
