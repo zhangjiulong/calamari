@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 import numpy as np
 
 from calamari_ocr.utils.image import load_image
-from tfaip.util.multiprocessing.parallelmap import parallel_map
 
 
 class DataAugmenter(ABC):
