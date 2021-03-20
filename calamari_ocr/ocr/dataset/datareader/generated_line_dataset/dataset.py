@@ -121,7 +121,7 @@ if __name__ == "__main__":
             fonts=['Junicode.ttf', 'DejaVuSerif.ttf']
         ),
         text_generator=params
-    ).create(PipelineMode.Training)
+    ).create(PipelineMode.TRAINING)
 
     import matplotlib.pyplot as plt
 

@@ -51,13 +51,13 @@ class PrepareSample(MappingDataProcessor[PrepareSampleProcessorParams]):
             raise ValueError(
                 f"Expected {self.data_params.input_channels} channels but got {line.shape[-1]}. Shape of input {line.shape}")
 
-        if self.mode in {PipelineMode.Training, PipelineMode.Evaluation} and not self.is_valid_line(text, len(
+        if self.mode in {PipelineMode.TRAINING, PipelineMode.EVALUATION} and not self.is_valid_line(text, len(
                 line) // self.data_params.downscale_factor):
             # skip longer outputs than inputs (also in evaluation due to loss computation)
             logger.warning(f"Skipping line with longer outputs than inputs (id={sample.meta['id']})")
             return sample.new_invalid()
 
-        if self.mode in {PipelineMode.Training, PipelineMode.Evaluation} and len(text) == 0:
+        if self.mode in {PipelineMode.TRAINING, PipelineMode.EVALUATION} and len(text) == 0:
             logger.warning(f"Skipping empty line with empty GT (id={sample.meta['id']})")
             return sample.new_invalid()
 

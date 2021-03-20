@@ -31,7 +31,7 @@ class Evaluator:
         self.params = params
         self.data = data
         self.preloaded_gt = None
-        self.params.setup.mode = PipelineMode.Targets
+        self.params.setup.mode = PipelineMode.TARGETS
 
     def preload_gt(self, gt_dataset: DataGeneratorParams, progress_bar=False):
         """ Preload gt to be used for several experiments

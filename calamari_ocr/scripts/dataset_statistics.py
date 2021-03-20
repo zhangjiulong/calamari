@@ -35,7 +35,7 @@ def main(args=None):
     args = parser.parse_args(args=args)
 
     data: CalamariDataGeneratorParams = args.args.data
-    gen = data.create(PipelineMode.Evaluation)
+    gen = data.create(PipelineMode.EVALUATION)
 
     logger.info(f"Loading {len(data)} files")
     images, texts, metas = list(zip(

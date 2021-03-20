@@ -381,6 +381,6 @@ class TextRegularizerProcessor(TextProcessor[TextRegularizerProcessorParams]):
 
 
 if __name__ == "__main__":
-    n = TextRegularizerProcessorParams(replacement_groups=["quotes", "spaces"]).create(None, mode=PipelineMode.Training)
+    n = TextRegularizerProcessorParams(replacement_groups=["quotes", "spaces"]).create(None, mode=PipelineMode.TRAINING)
     assert (n(Sample(targets="“Resolve quotes”")).targets == "''Resolve quotes''")
     assert (n(Sample(targets="  “Resolve   spaces  ”   ")).targets == "''Resolve spaces ''")

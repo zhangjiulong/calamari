@@ -155,10 +155,10 @@ class CalamariDataGenerator(DataGenerator[T], ABC):
         pass
 
     def generate(self) -> Iterable[Sample]:
-        if self.mode == PipelineMode.Training:
+        if self.mode == PipelineMode.TRAINING:
             # no pred_and_eval bc it's shuffle
             shuffle(self._samples)
-        for sample in self._generate_epoch(text_only=self.mode == PipelineMode.Targets):
+        for sample in self._generate_epoch(text_only=self.mode == PipelineMode.TARGETS):
             yield sample.to_input_target_sample()
 
     def _generate_epoch(self, text_only) -> Generator[InputSample, None, None]:

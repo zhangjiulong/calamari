@@ -36,11 +36,11 @@ class Data(DataBase[DataParams]):
     def default_params(cls) -> DataParams:
         params: DataParams = super(Data, cls).default_params()
         params.pre_proc = SequentialProcessorPipelineParams(
-            run_parallel=True,
+            run_parallel=False,
             processors=default_image_processors() +
                        default_text_pre_processors() +
                        [
-                           AugmentationProcessorParams(modes={PipelineMode.Training}),
+                           AugmentationProcessorParams(modes={PipelineMode.TRAINING}),
                            PrepareSampleProcessorParams(modes=INPUT_PROCESSOR),
                        ],
         )
@@ -90,7 +90,7 @@ if __name__ == '__main__':
             processors=default_image_processors() +
                        default_text_pre_processors() +
                        [
-                           AugmentationProcessorParams(modes={PipelineMode.Training},
+                           AugmentationProcessorParams(modes={PipelineMode.TRAINING},
                                                        data_aug_params=DataAugmentationAmount(amount=2),
                                                        ),
                            PrepareSampleProcessorParams(modes=INPUT_PROCESSOR),
